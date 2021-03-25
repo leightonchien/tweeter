@@ -7,8 +7,8 @@
 const escape = function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
-    return div.innerHTML
-  }
+    return div.innerHTML;
+  };
     
 
 
@@ -16,7 +16,7 @@ const createTweetElement = tweetObj => {
     //responsible for returning a tweet <article>
     //Must contain entire HTML structure of the tweet
     
-    const newTweet = 
+    const newTweet =
     `
     <article>
     <header class="tweet-head">
@@ -41,61 +41,64 @@ const createTweetElement = tweetObj => {
       </div>
     </footer>
     </article>
-    `
+    `;
     return newTweet;
-  }
+  };
   
   const renderTweets = arrayOfTweetObj => {
     //Need to prepend (to see latest tweets first) to .tweets-container
-    for (obj of arrayOfTweetObj) {
-      $('.tweet-container').prepend(createTweetElement(obj))
+    for (let obj of arrayOfTweetObj) {
+      $('.tweet-container').prepend(createTweetElement(obj));
     }
-  }
+  };
   
   const ajaxPost = (url, data, callback) => {
     $.post(url, data, callback);
-  }
+  };
   
   const getTextLength = queryString => {
     let text = '';
-    for (index in queryString) {
+    for (let index in queryString) {
       //text= is 5 chars long
       if (index > 4) {
         text += queryString[index];
       }
     }
-    return text.replace(/%20/g, " ").length;
-  }
+    return decodeURIComponent(text);
+};
   
   const resetErrorMessage = violation => {
     if (violation === 'over count') {
       $(".error-message").hide();
       $(".error-message").empty();
-      $(".error-message").append("<p>Your tweet is too long</p>")
+      $(".error-message").append("<p>Your tweet is too long</p>");
       $(".error-message").slideDown("slow");
     } else if (violation === 'empty') {
       $(".error-message").hide();
       $(".error-message").empty();
-      $(".error-message").append("<p>Keep typing...</p>")
+      $(".error-message").append("<p>Keep typing...</p>");
       $(".error-message").slideDown("slow");
     } else {
       $(".error-message").hide();
       $(".error-message").empty();
     }
-  }
+  };
   
 
 
   $(document).ready(function() {
-    //Want to make a GET request
+    //Want to make a GET request, get tweets
     const loadtweets = $.get('/tweets', function(data) {
-        renderTweets(data);
-    })
+      renderTweets(data);
+    });
   
     //When the button is clicked, ie when the form is submitted
     $('button').click(function(event) {
+
       event.preventDefault();
-      const data = $('form').serialize()
+
+      const data = $('form').serialize();
+
       const dataLength = (getText(data)).length;
       if (dataLength > 140) {
         resetErrorMessage('over count');
@@ -106,13 +109,14 @@ const createTweetElement = tweetObj => {
 
       const dataToPost = ajaxPost('/tweets', data, function() {
         $.get('/tweets', function(data) {
-            renderTweets(data)
-      })
+            renderTweets(data);
+      });
+
       //clear the box after tweets are posted
-      $('textarea').val("")
-    })
+      $('textarea').val("");
+    });
    }
 
-   })
+   });
 
   });

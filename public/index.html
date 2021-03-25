@@ -34,9 +34,12 @@
     <!--Tweets-->
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css"/>
 
-
+    <!-- Prevents the 'zooming out' of the webpage as the dimensions get smaller -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
   </head>
+
+
 
   <body>
     <!-- Top nav bar (fixed) -->
@@ -45,7 +48,15 @@
         <div> 
           <span class="logo">TWEETER</span> 
         </div>
+        <footer>     
+
+          <button class='write'>
+            <span><b>Write</b> a new tweet</span>
+            <i class="fas fa-angle-double-down"></i>
+          </button>
+        </footer>
     </nav>
+
 
 
     <header class="head">
@@ -54,7 +65,7 @@
       </div>
       <br>
       <div class="name">
-          <h2><span>Leighton Chien</span></h2>
+          <h2><span>Leighton</span> Chien</h2>
       </div>
   </header>
 
@@ -63,17 +74,17 @@
     <main class="container">
 
     <section class="new-tweet">
-      <h2>Compose Tweet</h2>
-      <form>
+      
+      
         <form action="/tweets" method="POST">
-        <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
 
-        <div class="submit-and-display"></div>>
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
+          <div class="submit-and-counter">
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
     </section>
 
     <section class="tweet-container">
@@ -81,8 +92,8 @@
       <article>
         <header>
           <div class="profile"><img src="/images/profile-hex.png"> </div>
-          <div class="username">Newton</div>
-          <div class="userid">@SirIsaac</div>
+          <p class="username">Newton</p>
+          <p class="userid">@SirIsaac</p>
 
         </header>
         <main class='tweet-content'>

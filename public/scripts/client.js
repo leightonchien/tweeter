@@ -71,7 +71,7 @@ const createTweetElement = tweetObj => {
     if (violation === 'over count') {
       $(".error-message").hide();
       $(".error-message").empty();
-      $(".error-message").append("<p>Your tweet is too long</p>");
+      $(".error-message").append("<p>Your tweet is too long!</p>");
       $(".error-message").slideDown("slow");
     } else if (violation === 'empty') {
       $(".error-message").hide();
@@ -85,12 +85,13 @@ const createTweetElement = tweetObj => {
   };
   
 
-
+//Re-size tweet textbox automatically while typing
   $(document).ready(function() {
-    //Want to make a GET request, get tweets
-    const loadtweets = $.get('/tweets', function(data) {
-      renderTweets(data);
-    });
+    $('textarea').on('input', function () {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+      })
+      $.get('/tweets', renderTweets);
   
     //When the button is clicked, ie when the form is submitted
     $('button').click(function(event) {
@@ -99,7 +100,8 @@ const createTweetElement = tweetObj => {
 
       const data = $('form').serialize();
 
-      const dataLength = (getText(data)).length;
+      const dataLength = getText(data).length;
+
       if (dataLength > 140) {
         resetErrorMessage('over count');
     } else if (dataLength === 0) {
@@ -107,14 +109,21 @@ const createTweetElement = tweetObj => {
     } else {
       resetErrorMessage();
 
-      const dataToPost = ajaxPost('/tweets', data, function() {
-        $.get('/tweets', function(data) {
-            renderTweets(data);
-      });
+      ajaxPost('/tweets', data, function() {
+        //Get the tweets immediately after submitting
+        $.get('/tweets', renderTweets);
 
       //clear the box after tweets are posted
       $('textarea').val("");
     });
+    
+     //Reset the character counter to 140 after submitting the tweet
+     $(this)
+     .closest(".new-tweet")
+     .find(".counter")
+     .removeClass("negative-count")
+     .text(140);
+
    }
 
    });

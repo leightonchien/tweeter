@@ -37,11 +37,15 @@
     <!-- Prevents the 'zooming out' of the webpage as the dimensions get smaller -->
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
-     <!-- CDN moment.js to help with displaying the time -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js" ></script>
+    <!-- CDN moment.js to help with displaying the time -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js" ></script>
+
+    <!--Error Message-->
+    <link rel="stylesheet" href="/styles/error-message.css" type="text/css"/>
 
 
-     
+
+
   </head>
 
 
@@ -80,6 +84,9 @@
 
     <section class="new-tweet">
       
+      <div class="error-message">
+      </div>
+
       
         <form action="/tweets" method="POST">
           <label for="tweet-text">What are you humming about?</label>
@@ -94,7 +101,10 @@
 
     <section class="tweet-container">
 
-      <article>
+
+      <!--Remove below hard-coded example-->
+
+      <!--<article>
         <header>
           <div class="profile"><img src="/images/profile-hex.png"> </div>
           <p class="username">Newton</p>
@@ -109,7 +119,7 @@
           <div class="tweet-actions">
           </div>
         </footer>
-      </article>
+      </article> -->
 
     </section>
 

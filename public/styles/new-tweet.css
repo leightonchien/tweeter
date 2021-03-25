@@ -1,3 +1,4 @@
+/*  compose tweet */
 .new-tweet {
     width: 60%;
     margin: 0.5em;
@@ -8,6 +9,7 @@
     font-weight: 600;
   }
   
+/* new tweet button */
   button {
     border: none;
     font-size: medium;
@@ -24,6 +26,7 @@
     margin-top: 5px;
   }
   
+/* new tweet box formatting */
   textarea {
     outline: none;
     overflow: hidden;
@@ -39,3 +42,8 @@
     height: 30px;
     width: 100%;
   } 
+
+/* red font when word count exceeds 140 char */
+.negative-count {
+  color: red;
+}

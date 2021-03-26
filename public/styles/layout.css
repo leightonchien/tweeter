@@ -56,6 +56,29 @@ article {
   margin-bottom: 0.5em;
 } 
 
+.scroll-to-top button {
+  outline: none;;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 1.5em;
+  z-index: 99;
+  border: none;
+  background-color: #f8ad3c;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 100%;
+}
+
+.scroll-to-top button:hover {
+  box-shadow: 4px 4px grey;
+}
+
+.scroll-to-top button .fas {
+  color: white;
+}
+
+
 @media only screen and (min-width:1024px) {
 
   body {

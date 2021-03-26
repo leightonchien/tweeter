@@ -51,12 +51,18 @@ const createTweetElement = tweetObj => {
       $('.tweet-container').prepend(createTweetElement(obj));
     }
   };
+
+  const renderLastTweet = arrayOfTweetObj => {
+    const lastTweet = arrayOfTweetObj[arrayOfTweetObj.length - 1];
+    $('.tweet-container').prepend(createTweetElement(lastTweet));
+  };
+  
   
   const ajaxPost = (url, data, callback) => {
     $.post(url, data, callback);
   };
   
-  const getTextLength = queryString => {
+  const getText = queryString => {
     let text = '';
     for (let index in queryString) {
       //text= is 5 chars long
@@ -93,8 +99,17 @@ const createTweetElement = tweetObj => {
       })
       $.get('/tweets', renderTweets);
   
+      // new tweet form set as hidden
+      $('.new-tweet').hide();
+
+      // toggle button 1
+      $('.write').click(function(event) {
+      $('.new-tweet').slideToggle('slow');
+    });
+
+
     //When the button is clicked, ie when the form is submitted
-    $('button').click(function(event) {
+    $('.submit-and-counter button').click(function(event) {
 
       event.preventDefault();
 
@@ -110,13 +125,13 @@ const createTweetElement = tweetObj => {
       resetErrorMessage();
 
       ajaxPost('/tweets', data, function() {
-        //Get the tweets immediately after submitting
-        $.get('/tweets', renderTweets);
+        //Get the tweet that was just submitted
+        $.get('/tweets', renderLastTweet);
 
       //clear the box after tweets are posted
       $('textarea').val("");
     });
-    
+
      //Reset the character counter to 140 after submitting the tweet
      $(this)
      .closest(".new-tweet")

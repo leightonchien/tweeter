@@ -5,6 +5,7 @@
  */
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -17,6 +18,7 @@ html {
 nav {
   font-family: "Source Sans Pro";
 }
+
 
 
 body {

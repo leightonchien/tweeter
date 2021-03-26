@@ -12,6 +12,7 @@ Primarily a client-side Single Page App (SPA).
 - character counter and tweet length validation
 - error message if 140 characters limit is exceeded or  tweet-box blank
 - responsive design for an optimized user experience across devices
+- hover effect when cursor is on top of a tweet
 - animated toggle button to show/hide tweet-box
 - fading toggle button appearing when scrolling down to bring the user back up to the top of the page
 

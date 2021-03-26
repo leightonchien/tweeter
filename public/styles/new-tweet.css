@@ -10,14 +10,15 @@
   }
   
 /* new tweet button */
-  button {
+  .submit-and-counter button {
     border: none;
     font-size: medium;
     font-family: "Bungee";
     background-color:#4056A1;
     color: #ffffff;
   }
- 
+  
+  
 /* word count display */  
   .submit-and-counter {
     font-size: medium;
@@ -53,4 +54,4 @@
     .new-tweet {
       width: 90%;
     }
-  } 
+  }

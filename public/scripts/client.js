@@ -79,14 +79,17 @@ const resetErrorMessage = violation => {
     $(".error-message").empty();
     $(".error-message").append("<p>Your tweet is too long!</p>");
     $(".error-message").slideDown("slow");
+    $('textarea').focus();
   } else if (violation === 'empty') {
     $(".error-message").hide();
     $(".error-message").empty();
     $(".error-message").append("<p>Keep typing...</p>");
     $(".error-message").slideDown("slow");
+    $('textarea').focus();
   } else {
     $(".error-message").hide();
     $(".error-message").empty();
+    $('textarea').focus();
   }
 };
   
@@ -105,6 +108,7 @@ $(document).ready(function() {
   // toggle write new tweet button
   $('.write').click(function(event) {
     $('.new-tweet').slideToggle('slow');
+    $('textarea').focus();
   });
 
 

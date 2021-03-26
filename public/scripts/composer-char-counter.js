@@ -35,6 +35,7 @@ $(document).ready(function() {
     if ($('.new-tweet').is(':hidden')) {
       $('.new-tweet').show();
     }
+    $('textarea').focus();
   });
 });
   

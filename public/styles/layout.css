@@ -53,7 +53,7 @@ body {
 article {
   align-items: column;
   border: solid;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.0em;
 } 
 
 .scroll-to-top button {

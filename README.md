@@ -1,8 +1,29 @@
 # Tweeter Project
 
 Tweeter is a simple, single-page Twitter clone.
+Primarily a client-side Single Page App (SPA).
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+## Project Stack
+- HTML, CSS, JS, jQuery and AJAX on the client-side
+- Node and Express on the server-side
+
+## Project Features
+- most recent tweet is displayed on top of a list of tweets
+- character counter and tweet length validation
+- error message if 140 characters limit is exceeded or  tweet-box blank
+- responsive design for an optimized user experience across devices
+- animated toggle button to show/hide tweet-box
+- fading toggle button appearing when scrolling down to bring the user back up to the top of the page
+
+## Final Product
+Desktop view with both toggle buttons shown and tweet-box hidden
+!["desktop-view"](https://github.com/leightonchien/tweeter/blob/6c14aac7c038f64b981106fe638833dd7f5416e5/docs/desktop-view.png)
+
+Error message when tweet length exceeded
+!["error-message"](https://github.com/leightonchien/tweeter/blob/6c14aac7c038f64b981106fe638833dd7f5416e5/docs/error-msg.png)
+
+Mobile view/responsive design
+!["mobile-view"](https://github.com/leightonchien/tweeter/blob/6c14aac7c038f64b981106fe638833dd7f5416e5/docs/mobile-view.png)
 
 ## Getting Started
 
@@ -15,3 +36,6 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Body-parser
+- Chance
+- Moment
